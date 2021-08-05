@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+    traefik:
+        image: traefik:v2.4.13
+        container_name: uccser-development-proxy
+        ports:
+            # HTTP/HTTPS ports
+            - "80:80"
+            - "443:443"
+        environment:
+            - TZ=Pacific/Auckland
+        volumes:
+            # So that Traefik can listen to the Docker events
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            # Map certificates into the container
+            - ./certs:/etc/traefik/:z
+            # Map static config into the container
+            - ./traefik.yml:/etc/traefik/traefik.yml:ro
+        networks:
+            - uccser-development-proxy
+        labels:
+            # General labels
+            - "traefik.enable=true"
+            - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+            # HTTPS
+            - "traefik.http.routers.traefik.entryPoints=web-secure"
+            - "traefik.http.routers.traefik.service=traefik"
+            - "traefik.http.routers.traefik.rule=Host(`proxy.localhost`)"
+            - "traefik.http.routers.traefik.tls=true"
+
+networks:
+    uccser-development-proxy:
+        driver: bridge
+        # Set name so not scoped with stack name
+        name: uccser-development-proxy
