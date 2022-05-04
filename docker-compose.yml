@@ -29,6 +29,21 @@ services:
             - "traefik.http.routers.traefik.rule=Host(`proxy.localhost`)"
             - "traefik.http.routers.traefik.tls=true"
 
+    mailhog:
+        image: mailhog/mailhog:v1.0.1
+        container_name: uccser-development-email
+        networks:
+            - uccser-development-proxy
+        labels:
+            # General labels
+            - "traefik.enable=true"
+            - "traefik.http.services.mailhog.loadbalancer.server.port=8025"
+            # HTTPS
+            - "traefik.http.routers.mailhog.entryPoints=web-secure"
+            - "traefik.http.routers.mailhog.service=mailhog"
+            - "traefik.http.routers.mailhog.rule=Host(`email.localhost`)"
+            - "traefik.http.routers.mailhog.tls=true"
+
 networks:
     uccser-development-proxy:
         driver: bridge

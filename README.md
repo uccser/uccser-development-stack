@@ -1,13 +1,14 @@
 # UCCSER Development Proxy
 
-This proxy is used when working on the following UCCSER websites:
+This proxy is required when working on the following UCCSER websites:
 
 - [CS Unplugged](https://github.com/uccser/cs-unplugged)
 - [CS Field Guide](https://github.com/uccser/cs-field-guide)
 - [codeWOF](https://github.com/uccser/codewof)
 - [DTHM for Kaiako](https://github.com/uccser/dthm4kaiako)
 
-This proxy allows multiple systems to run on your development environment simultaneously.
+This proxy allows multiple systems to run on your development environment simultaneously under HTTPS.
+The proxy also includes a system for catching emails sent by these systems.
 
 # Setup
 
@@ -26,7 +27,15 @@ The script will finish with telling you when the certificates expire, where you 
 To run the proxy, run `docker-compose up -d` in this project directory.
 Docker will run the proxy in the background.
 
+> **Tip:** Add an alias to the end of your `.bashrc` file that allows starting the proxy from anywhere.
+> For example (you will need to modify the path to the docker compose file for your specific system):
+> ```
+> alias uc-dev="docker-compose -f ~/Projects/uccser-development-proxy/docker-compose.yml up -d"
+> ```
+
 You can view the dashboard of the proxy by opening a browser and going to `proxy.localhost` in your preferred web browser.
+
+You can view the email system by opening a browser and going to `email.localhost` in your preferred web browser.
 
 To view logs of the proxy, run `docker-compose logs -f traefik`.
 
