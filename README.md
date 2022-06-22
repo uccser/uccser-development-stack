@@ -3,6 +3,7 @@
 This proxy is required when working on the following UCCSER websites:
 
 - [CS Unplugged](https://github.com/uccser/cs-unplugged)
+- [CS Unplugged Classic](https://github.com/uccser/cs-unplugged-classic)
 - [CS Field Guide](https://github.com/uccser/cs-field-guide)
 - [codeWOF](https://github.com/uccser/codewof)
 - [DTHM for Kaiako](https://github.com/uccser/dthm4kaiako)
