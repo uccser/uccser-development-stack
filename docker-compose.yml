@@ -3,7 +3,7 @@ version: "3.8"
 services:
     traefik:
         image: traefik:v2.4.13
-        container_name: uccser-development-stack
+        container_name: uccser-development-proxy
         ports:
             # HTTP/HTTPS ports
             - "80:80"
