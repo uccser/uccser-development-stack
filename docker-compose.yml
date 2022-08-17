@@ -3,7 +3,7 @@ version: "3.8"
 services:
     traefik:
         image: traefik:v2.4.13
-        container_name: uccser-development-proxy
+        container_name: uccser-development-stack
         ports:
             # HTTP/HTTPS ports
             - "80:80"
@@ -18,7 +18,7 @@ services:
             # Map static config into the container
             - ./traefik.yml:/etc/traefik/traefik.yml:ro
         networks:
-            - uccser-development-proxy
+            - uccser-development-stack
         labels:
             # General labels
             - "traefik.enable=true"
@@ -33,7 +33,7 @@ services:
         image: mailhog/mailhog:v1.0.1
         container_name: uccser-development-email
         networks:
-            - uccser-development-proxy
+            - uccser-development-stack
         labels:
             # General labels
             - "traefik.enable=true"
@@ -45,7 +45,7 @@ services:
             - "traefik.http.routers.mailhog.tls=true"
 
 networks:
-    uccser-development-proxy:
+    uccser-development-stack:
         driver: bridge
         # Set name so not scoped with stack name
-        name: uccser-development-proxy
+        name: uccser-development-stack
