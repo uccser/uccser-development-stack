@@ -21,7 +21,7 @@ These steps are suitable for installing within the recommended Linux environment
 If you have used this development guide, the first two steps of these installation steps are already completed.
 
 1. Install [Docker](https://docs.docker.com/engine/).
-2. Install [Docker Compose](https://docs.docker.com/compose/install/compose-plugin/) (the v2 plugin, not the older v1 `docker-compose`).
+2. Install [Docker Compose](https://docs.docker.com/compose/install/) (the v2 plugin, not the older v1 `docker-compose`).
 3. Install [mkcert](https://github.com/FiloSottile/mkcert).
 4. Run `mkcert -install` to install the certificate authority.
 5. Run `./create-certs.sh` to create the required certificates.
