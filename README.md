@@ -23,8 +23,7 @@ If you have used this development guide, the first two steps of these installati
 1. Install [Docker](https://docs.docker.com/engine/).
 2. Install [Docker Compose](https://docs.docker.com/compose/install/) (the v2 plugin, not the older v1 `docker-compose`).
 3. Install [mkcert](https://github.com/FiloSottile/mkcert).
-4. Run `mkcert -install` to install the certificate authority.
-5. Run `./create-certs.sh` to create the required certificates.
+4. Run `./create-certs.sh` to install the certificate authority and create the required certificates.
 
 The `create-certs.sh` script will create SSL certificates for our UCCSER projects.
 The script will also tell you when the certificates expire, when you will be required to rerun this setup to regenerate the certificates.
