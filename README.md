@@ -43,6 +43,7 @@ If you are using WSL2 to run Docker on Windows, there are a few extra steps to g
 
 To run the development stack, run `docker compose up -d` in this project directory.
 Docker will run the stack in the background.
+The development stack opens ports 80 and 443 on the host machine, therefore any existing services using one of these ports will need to be stopped before starting the development stack.
 
 Once the development stack is running, the following features are available:
 
