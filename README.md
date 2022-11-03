@@ -41,7 +41,7 @@ If you are using WSL2 to run Docker on Windows, there are a few extra steps to g
 
 # Usage
 
-To run the development stack, run `docker compose up -d` in this project directory.
+To run the development stack, run `docker compose up -d` in this project directory. Alternatively, run `./dev start`.
 Docker will run the stack in the background.
 The development stack opens ports 80 and 443 on the host machine, therefore any existing services using one of these ports will need to be stopped before starting the development stack.
 
@@ -58,9 +58,9 @@ Once the development stack is running, the following features are available:
 > `echo 'alias uc-dev="docker compose -f ~/uccser-development-stack/docker-compose.yml up -d"' >> ~/.bashrc`
 > ```
 
-To view logs of the proxy, run `docker compose logs -f traefik`.
+To view logs of the proxy, run `docker compose logs -f traefik`. Alternatively, run `./dev logs traefik`.
 
-To shutdown the development stack, run `docker compose down`.
+To shutdown the development stack, run `docker compose down` or `./dev end`.
 If you get a error when running this command, saying `ERROR: error while removing network: network uccser-development-stack`, then one of our website systems is likely still running.
 The stack will be shutdown, but the network will remain active.
 If you wish to remove the network, you will need to end all UCCSER website systems first then rerun the shutdown command.
