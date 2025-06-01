@@ -30,14 +30,16 @@ The script will also tell you when the certificates expire, when you will be req
 
 If you are using WSL2 to run Docker on Windows, there are a few extra steps to get the stack installed correctly:
 
-6. Install [mkcert](https://github.com/FiloSottile/mkcert) on the Windows host machine.
+6. Install [mkcert](https://github.com/FiloSottile/mkcert) on both the Windows host machine and within WSL.
 7. Open a Windows Powershell terminal and run `mkcert -install` to install the certificate authority on Windows.
 8. Run `mkcert -CAROOT` to find the location of the CA files in Windows.
 9. Open this location in Windows Explorer and copy the two files within the directory.
-10. Open a terminal within the Linux environment and run `mkcert -CAROOT` to find the location of the CA files in Linux.
-11. Open this location in Windows Explorer and paste the two Windows files into this location, replacing the existing files.
+10. Open a terminal in WSL and run `mkcert -install` to install the certificate authority within WSL.
+11. Open a terminal within the Linux environment and run `mkcert -CAROOT` to find the location of the CA files in Linux (you may need to create this ).
+12. Open this location in Windows Explorer and paste the two Windows files into this location, replacing the existing files.
     - The Linux disk drives can be found with <kbd>Win</kbd> + <kbd>R</kbd> (opens the Run prompt) and entering `\\wsl$`
-12. Open a terminal within the Linux environment and run `./create-certs.sh` to recreate the required certificates.
+    - You may need to delete the Linux files, to place the Windows files.
+13. Open a terminal within the Linux environment and run `./create-certs.sh` to recreate the required certificates.
 
 # Usage
 
