@@ -1,6 +1,6 @@
 services:
     traefik:
-        image: traefik:v2.4.13
+        image: traefik:v3.6.10
         container_name: uccser-development-proxy
         ports:
             # HTTP/HTTPS ports

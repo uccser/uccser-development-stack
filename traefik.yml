@@ -1,3 +1,8 @@
+# Use the old v2 rule syntax, not sure what needs to be changed to use native
+# v3 rule syntax.
+core:
+  defaultRuleSyntax: v2
+
 # Defines openings for incoming requests
 entryPoints:
   web:
